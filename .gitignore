@@ -273,6 +273,11 @@ paket-files/
 # Telerik's JustMock configuration file
 *.jmconfig
 
-Resume.Bussines/*
-Resume.DAL/*
-Resume.Web/*
+Resume.Bussines/bin/*
+Resume.Bussines/obj/*
+
+Resume.DAL/bin/*
+Resume.DAL/obj/*
+
+Resume.Web/bin/*
+Resume.Web/obj/*
