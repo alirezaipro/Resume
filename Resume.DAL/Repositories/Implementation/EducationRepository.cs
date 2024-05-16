@@ -47,6 +47,8 @@ public class EducationRepository : IEducationRepository
 
         #endregion
 
+        query = query.OrderByDescending(e => e.CreateDate);
+
         #region Pagination
 
         await model.Paging(query.Select(e => new EducationViewModel()

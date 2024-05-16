@@ -13,6 +13,9 @@
     <ItemGroup>
       <_ContentIncludedByDefault Remove="wwwroot\css\site.css" />
       <_ContentIncludedByDefault Remove="Views\AboutMe\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Education\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Education\List.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Education\Update.cshtml" />
     </ItemGroup>
 
     <ItemGroup>

@@ -27,7 +27,8 @@ public class EducationController : AdminBaseController
 
     public async Task<IActionResult> List(FilterEducationViewModel filter)
     {
-        return View();
+        var model = await _educationService.FilterAsync(filter);
+        return View(model);
     }
 
     #endregion
@@ -50,17 +51,34 @@ public class EducationController : AdminBaseController
         }
 
         #endregion
-        
-        return View();
+
+        var result = await _educationService.CreateAsync(model);
+        switch (result)
+        {
+            case CreateEducationResult.Success:
+                TempData[SuccessMessage] = "عملیات با موفقیت انجام شد.";
+                return RedirectToAction("List");
+
+            case CreateEducationResult.Error:
+                TempData[ErrorMessage] = "عملیات با شکست مواجه شد.";
+                break;
+        }
+
+        return View(model);
     }
 
     #endregion
 
     #region Edit
-    
-    public IActionResult Edit()
+
+    public async Task<IActionResult> Edit(int id)
     {
-        return View();
+        var model = await _educationService.GetForEditByIdAsync(id);
+
+        if (model == null)
+            return NotFound();
+
+        return View(model);
     }
 
     [HttpPost]
@@ -74,8 +92,24 @@ public class EducationController : AdminBaseController
         }
 
         #endregion
-        
-        return View();
+
+        var result = await _educationService.EditAsync(model);
+        switch (result)
+        {
+            case EditEducationResult.Success:
+                TempData[SuccessMessage] = "عملیات با موفقیت انجام شد.";
+                return RedirectToAction("List");
+
+            case EditEducationResult.Error:
+                TempData[ErrorMessage] = "عملیات با شکست مواجه شد.";
+                break;
+
+            case EditEducationResult.EducationNotFound:
+                TempData[ErrorMessage] = "تحصیلات پیدا نشد.";
+                break;
+        }
+
+        return View(model);
     }
 
     #endregion

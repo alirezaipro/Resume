@@ -16,7 +16,8 @@ public class EditEducationViewModel
     [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]
     public DateOnly Start { get; set; }
 
-    [Display(Name = "تاریخ تا")] public DateOnly? End { get; set; }
+    [Display(Name = "تاریخ تا")] 
+    public DateOnly? End { get; set; }
 
     [Display(Name = "توضیحات")]
     [Required(ErrorMessage = "لطفا {0} را وارد کنید.")]

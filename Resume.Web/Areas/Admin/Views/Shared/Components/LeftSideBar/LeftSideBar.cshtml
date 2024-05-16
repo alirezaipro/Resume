@@ -67,6 +67,20 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-user"></i>
+                        <span>مدیریت تحصیلات من</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Education" asp-action="List">لیست تحصیلات من</a>
+                        </li>
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Education" asp-action="Create">افزودن تحصیلات</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </aside>
